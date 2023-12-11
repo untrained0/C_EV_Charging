@@ -32,25 +32,23 @@ export default function SignUpScreen() {
 
 
   return (
-    <View style={{marginTop: 40, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-      <View style={{display: 'flex', flexDirection:'row', alignItems:'center'}}>
-      <Text style={{fontFamily: 'outfit-bold', fontSize: 20}}>EV</Text>
-      <Image style={styles.logo_image} source={require('./../../../assets/images/ev_car_logo.png')} />
-      <Text style={{fontFamily: 'outfit-bold', fontSize: 20}}>STATION</Text>
-      
-
+    <View style={{ marginTop: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        <Text style={{ fontFamily: 'outfit-bold', fontSize: 20 }}>EV</Text>
+        <Image style={styles.logo_image} source={require('./../../../assets/images/ev_car_logo.png')} />
+        <Text style={{ fontFamily: 'outfit-bold', fontSize: 20 }}>STATION</Text>
       </View>
-      <Image style={styles.bottom_image} source={require('./../../../assets/images/ev_car.jpg')} />
+      <Image style={styles.bottom_image} source={require('./../../../assets/images/ev_car.png')} />
 
       {/* <Text style={{ textAlign: 'center', marginTop: 80, fontSize: 20 }}>Login/Signup</Text> */}
-      <View style={{padding: 20}}>
-      <Text style={styles.title}>Your EV Charging Station Finder App</Text>
+      <View style={{ padding: 20 }}>
+        <Text style={styles.title}>Your EV Charging Station Finder App</Text>
         <Text style={styles.subtitle}>Find EV Charging Stations near and you and enjoy your journey.</Text>
       </View>
       <TouchableOpacity style={styles.button} onPress={onPress}>
 
         <Image source={require('./../../../assets/images/google_logo.png')} style={{ width: 30, height: 30, marginRight: 15 }} />
-        <Text style={{ color: Colors.WHITE, fontSize: 17, fontFamily: 'outfit', textAlign: 'center'}}>Sign In with Google</Text>
+        <Text style={{ color: Colors.WHITE, fontSize: 17, fontFamily: 'outfit', textAlign: 'center' }}>Sign In with Google</Text>
       </TouchableOpacity>
 
     </View>
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: 99,
     display: 'flex',
     flexDirection: 'row',
-    alignItems:'center' 
+    alignItems: 'center'
   },
   logo_image: {
     width: 50,

@@ -11,6 +11,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigation from './app/Navigations/TabNavigation';
 import { UserLocationContext } from './app/Contexts/UserLocationContext';
+import { NativeBaseProvider } from 'native-base';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -84,6 +85,8 @@ export default function App() {
     <ClerkProvider
       tokenCache={tokenCache}
       publishableKey={CLERK_PUBLISHABLE_KEY} >
+            <NativeBaseProvider>
+
         <UserLocationContext.Provider value={{location, setLocation}}>
       <View style={styles.container} onLayout={onLayoutRootView}>
         <SignedIn>
@@ -97,6 +100,7 @@ export default function App() {
         </SignedOut>
       </View>
       </UserLocationContext.Provider>
+      </NativeBaseProvider>
     </ClerkProvider>
   );
 }

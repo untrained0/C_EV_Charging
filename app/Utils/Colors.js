@@ -6,6 +6,7 @@ export default{
     // bgColor:'#F6F8FC',
     BLACK:'#000',
     // GREEN:'#0CD650',
-    // LIGHT_GREEN: '#D1FFBD'
+    // LIGHT_GREEN: '#D1FFBD',
+    WHITE_TRANSP:'#ffffff87'
 
 }
