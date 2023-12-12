@@ -6,10 +6,13 @@ import SearchLocation from './SearchLocation'
 import { UserLocationContext } from '../../Contexts/UserLocationContext'
 import GlobalApi from '../../Utils/GlobalApi'
 import PlaceListView from './PlaceListView'
+import { SelectMarkerContext } from '../../Contexts/SelectMarkerContext'
 
 export default function HomeScreen() {
 
   const { location, setLocation } = useContext(UserLocationContext);
+  // console.log(location);
+  const [selectMarker, setSelectMarker] = useState([]);
   const [placeList, setPlaceList] = useState([]);
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export default function HomeScreen() {
           "center": {
             "latitude": location?.latitude,
             "longitude": location?.longitude},
-          "radius": 5000.0
+          "radius": 2000.0
         }
       }
     }
@@ -39,16 +42,24 @@ export default function HomeScreen() {
 
   
   return (
+    <SelectMarkerContext.Provider value={{selectMarker, setSelectMarker}}>
     <View>
       <View style={styles.headerContainer}>
         <Header />
-        <SearchLocation searchedLocation={(location) => console.log(location)}/>
+        <SearchLocation searchedLocation={(location) => 
+        setLocation({
+          latitude: location.lat,
+          longitude: location.lng
+        })
+        // console.log(location)
+        }/>
       </View>
-      <AppMapView />
+      {placeList&&<AppMapView placeList={placeList}/>}
       <View style={{position: 'absolute', zIndex: 10, bottom: 0, width: '100%'}}>
-       {placeList&& <PlaceListView placeList = {placeList}/>}
+       {placeList&& <PlaceListView placeList={placeList}/>}
       </View>
     </View>
+    </SelectMarkerContext.Provider>
   )
 }
 

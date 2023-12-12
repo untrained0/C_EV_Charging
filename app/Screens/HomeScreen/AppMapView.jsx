@@ -3,8 +3,9 @@ import React, { useContext } from 'react'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewStyle from './../../Utils/MapViewStyle.json';
 import { UserLocationContext } from '../../Contexts/UserLocationContext';
+import Markers from './Markers';
 
-export default function AppMapView() {
+export default function AppMapView({ placeList }) {
 
     const { location, setLocation } = useContext(UserLocationContext);
 
@@ -18,19 +19,24 @@ export default function AppMapView() {
                 region={{
                     latitude: location?.latitude,
                     longitude: location?.longitude,
-                    latitudeDelta: 0.0022,
-                    longitudeDelta: 0.0021
+                    latitudeDelta: 0.0122,
+                    longitudeDelta: 0.0121
                 }}
             >
-                <Marker
+                {location ? <Marker
                     coordinate={{
                         latitude: location?.latitude,
                         longitude: location?.longitude,
                     }}>
 
-                    <Image source={require('./../../../assets/images/ev_car_for_map.png')} style={{width: 40, height: 40}} />
+                    <Image source={require('./../../../assets/images/ev_car_for_map.png')} style={{ width: 40, height: 40 }} />
 
-                </Marker>
+                </Marker> : null}
+
+                {placeList && placeList.map((item, index) => (
+                    <Markers key={index} index={index} place={item} />
+                ))}
+
             </MapView>
         </View>
     );

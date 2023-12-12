@@ -3,7 +3,6 @@ import React from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../../Utils/Colors';
-import GlobalApi from '../../Utils/GlobalApi';
 import secret_keys from '../../../secret_keys';
 
 
