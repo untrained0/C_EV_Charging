@@ -1,7 +1,8 @@
 import axios from "axios";
+import secret_keys from "../../secret_keys";
 
 const BASE_URL = "https://places.googleapis.com/v1/places:searchNearby";
-const API_KEY = "AIzaSyB9ctiAb-J9CZil_ZlpAg3ZOXpxwudHlNw";
+const API_KEY = secret_keys.API_KEY;
 
 const config = {
     headers : {
@@ -20,6 +21,5 @@ const config = {
 const NewNearByPlaces = (data) => axios.post(BASE_URL, data, config);
 
 export default{
-    NewNearByPlaces,
-    API_KEY
+    NewNearByPlaces
 }

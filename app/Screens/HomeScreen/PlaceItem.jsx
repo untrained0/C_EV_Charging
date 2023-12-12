@@ -1,9 +1,10 @@
 import { View, Text, Image, Dimensions } from 'react-native'
 import React from 'react'
 import Colors from '../../Utils/Colors'
-import GlobalApi from '../../Utils/GlobalApi';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
+import secret_keys from '../../../secret_keys';
+
 
 
 export default function PlaceItem({ place }) {
@@ -22,7 +23,7 @@ export default function PlaceItem({ place }) {
             >
                 <Image source={
                     place?.photos ?
-                        { uri: PLACE_PHOTO_BASE_URL + place?.photos[0]?.name + "/media?key=" + GlobalApi.API_KEY + "&maxHeightPx=800&maxWidthPx=1200" }
+                        { uri: PLACE_PHOTO_BASE_URL + place?.photos[0]?.name + "/media?key=" + secret_keys.API_KEY + "&maxHeightPx=800&maxWidthPx=1200" }
                         : require('./../../../assets/images/ev_car.png')
                 } style={{ width: '100%', height: 140, zIndex: -1 }} />
                 <View style={{

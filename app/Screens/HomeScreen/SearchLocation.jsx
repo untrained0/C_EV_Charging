@@ -3,6 +3,9 @@ import React from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../../Utils/Colors';
+import GlobalApi from '../../Utils/GlobalApi';
+import secret_keys from '../../../secret_keys';
+
 
 export default function SearchLocation({searchedLocation}) {
     return (
@@ -18,7 +21,7 @@ export default function SearchLocation({searchedLocation}) {
                     searchedLocation(details?.geometry?.location);
                 }}
                 query={{
-                    key: 'AIzaSyB9ctiAb-J9CZil_ZlpAg3ZOXpxwudHlNw',
+                    key: secret_keys.API_KEY,
                     language: 'en',
                 }}
             />
